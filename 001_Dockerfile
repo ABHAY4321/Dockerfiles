@@ -1,0 +1,10 @@
+FROM nginx:perl
+RUN apt update && apt install tree -y
+RUN touch /tmp/test1.txt
+RUN touch /tmp/test2.txt
+RUN touch /tmp/test3.txt
+RUN touch /tmp/test4.txt
+RUN touch /tmp/test5.txt
+RUN echo "Abhay Singh" && \
+echo "Pinku Singh" && \
+echo "Abhay Kumar Pinku"
