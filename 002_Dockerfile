@@ -1,0 +1,21 @@
+FROM abhay10371/ubuntu_aio:latest
+LABEL name="Abhay Singh"
+LABEL email="abhay10371@gmail.com"
+LABEL maintainer="cricbuzz.com"
+ENV NAME="john"
+ENV PASS="test@123"
+RUN pwd > /tmp/1stpwd.txt
+RUN cd /tmp/
+RUN pwd > /tmp/2ndpwd.txt
+WORKDIR /tmp
+RUN pwd > /tmp/3rdpwd.txt
+RUN whoami > 1stwhoami.txt
+RUN adduser --home /home/john --ingroup root --disabled-password --gecos "" $NAME && usermod -aG sudo $NAME && echo "$NAME:$PASS" | chpasswd
+USER $NAME
+RUN whoami > 2ndwhoami.txt
+RUN mkdir -p /tmp/newtest
+COPY test /tmp/newtest
+RUN mkdir -p /tmp/test1
+COPY test.tar.gz /tmp/test1
+RUN mkdir -p /tmp/test2
+ADD test.tar.gz /tmp/test2
