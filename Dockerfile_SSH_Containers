@@ -5,5 +5,7 @@ RUN mkdir -p /var/run/sshd
 RUN echo 'root:redhat' | chpasswd
 #password for user login
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+#Expose port
+#EXPOSE 22 ==> If we expose it in Dockerfile, then after creating container if we list it using 'docker container ls', then it shows '22/TCP' under 'Ports'. In this case, just use '-P' to expose it in order to access it from host machine. It will use any available host machine port randomly. 
 # Start SSH server
 ENTRYPOINT service ssh start && /bin/bash
