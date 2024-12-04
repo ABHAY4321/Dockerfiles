@@ -1,0 +1,11 @@
+FROM abhay10371/ubuntu_aio:latest
+RUN apt update && apt install openssh-server -y
+LABEL name="Abhay Singh"
+LABEL email="abhay10371@gmail.com"
+LABEL maintainer="cricbuzz.com"
+ENV NAME="john"
+ENV PASS="test@123"
+RUN mkdir -p /var/run/sshd
+RUN adduser --home /home/john --ingroup root --disabled-password --gecos "" $NAME && usermod -aG sudo $NAME && echo "$NAME:$PASS" | chpasswd
+ENTRYPOINT service ssh restart && /bin/bash
+# Command to run container: docker container run -itd --name <ctr-name> -p 2222:22 <image>  /bin/bash
