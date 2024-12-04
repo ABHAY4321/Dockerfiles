@@ -1,0 +1,4 @@
+FROM nginx_aio:latest
+RUN apt install python3 -y
+CMD ["python3"]
+# Command to run: docker container run -it --name <ctr-name> <image-name>
