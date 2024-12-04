@@ -1,4 +1,4 @@
-FROM abhay10371/ubuntu_aio:latest
+FROM abhay10371/nginx_aio:latest
 LABEL name="Abhay Singh"
 LABEL email="abhay10371@gmail.com"
 LABEL maintainer="cricbuzz.com"
