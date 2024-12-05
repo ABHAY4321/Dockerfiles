@@ -1,0 +1,11 @@
+FROM abhay10371/ubuntu_aio:latest
+WORKDIR /app
+COPY test.sh /app
+ENTRYPOINT ["/app/test.sh"]
+
+###################################################################################
+## cat test.sh
+##!/bin/bash
+#echo "Hostname: $(hostname)"
+#echo "Present Working Directory: $(pwd)"
+###################################################################################
